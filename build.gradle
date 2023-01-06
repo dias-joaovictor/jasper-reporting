@@ -16,6 +16,7 @@ configurations {
 
 repositories {
 	mavenCentral()
+	maven { url "https://jaspersoft.jfrog.io/jaspersoft/third-party-ce-artifacts/"}
 }
 
 dependencies {
@@ -24,6 +25,33 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+
+	//JasperReport Library
+	implementation 'net.sf.jasperreports:jasperreports:6.20.0'
+	// DejaVu Font extensions
+	// https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports-fonts
+	implementation 'net.sf.jasperreports:jasperreports-fonts:6.20.0'
+	// https://mvnrepository.com/artifact/net.sf.barcode4j/barcode4j
+	implementation 'net.sf.barcode4j:barcode4j:2.1'
+	// https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-bridge
+	// this need for barcode4j.
+	implementation 'org.apache.xmlgraphics:batik-bridge:1.16'
+	// this for barcode4j is vulnerabilities
+	// https://mvnrepository.com/artifact/org.apache.ant/ant
+	implementation 'org.apache.ant:ant:1.10.12'
+	// this for barcode4j is vulnerabilities
+	// https://mvnrepository.com/artifact/junit/junit
+	implementation 'junit:junit:4.13.2'
+	// this is vulnerabilities for net.sf.jasperreports:jasperreports@6.17.0
+	// https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on
+	implementation 'org.bouncycastle:bcprov-jdk15on:1.70'
+	// this is vulnerabilities for batik-bridge@1.14
+	// https://mvnrepository.com/artifact/commons-io/commons-io
+	implementation 'commons-io:commons-io:2.11.0'
+	// https://mvnrepository.com/artifact/xerces/xercesImpl
+	// protected An illegal reflective access operation. for jasperreports
+	implementation 'xerces:xercesImpl:2.12.1'
 }
 
 tasks.named('test') {
